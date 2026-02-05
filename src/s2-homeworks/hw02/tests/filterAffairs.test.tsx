@@ -1,5 +1,4 @@
-import React from 'react'
-import { AffairType, filterAffairs } from '../HW2'
+import {AffairType, filterAffairs} from '../HW2'
 
 let initialState: AffairType[]
 
@@ -29,3 +28,5 @@ test('filter by low', () => {
     const newState = filterAffairs(initialState, 'low')
     expect(newState.length).toBe(2)
 })
+
+//pnpm test filterAffairs.test.tsx

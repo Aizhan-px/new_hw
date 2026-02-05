@@ -1,18 +1,38 @@
 .sendForm {
-
+    display: flex;
+    gap: 8px;
+    padding: 10px;
 }
 
 .textarea {
+    flex: 1;
+    resize: none;
+    padding: 8px 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(204, 204, 204, 0.16);
+    font-family: sans-serif,Montserrat;
+    outline: none;
+    background: #F5F7FB;
+}
 
+.textarea:focus {
+    border-color: rgba(168, 239, 168, 0.96);
 }
 
 .button {
-
+    padding: 0 16px;
+    border: none;
+    border-radius: 20px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
 }
 
 .button:hover {
-
+    background-color: #0069d9;
 }
+
 .button:active {
-
+    background-color: #005cbf;
 }
+

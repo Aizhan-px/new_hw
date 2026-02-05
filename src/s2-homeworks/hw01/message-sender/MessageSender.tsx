@@ -50,18 +50,15 @@ const MessageSender = (props: any) => {
                     id={'hw1-textarea'}
                     className={s.textarea}
                     ref={textareaRef}
-
                     title={'Shift+Enter for send'}
                     placeholder={'Type your message'}
                     value={text}
-
                     onChange={onChange}
                     onKeyDown={onKeyDown}
                 />
                 <button
                     id={'hw1-button'}
                     className={s.button}
-
                     onClick={addMessage}
                 >
                     {/*текст кнопки могут изменить студенты*/}
