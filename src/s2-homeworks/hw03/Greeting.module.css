@@ -1,4 +1,5 @@
 .greetingForm {
+    margin-top: 927px;
     display: flex;
     flex-direction: column;
     gap: 10px;
