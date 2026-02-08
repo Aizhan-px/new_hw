@@ -54,10 +54,7 @@ export const pureOnEnter = (
     }
 }
 
-export const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
-                                                                            users,
-                                                                            addUserCallback,
-                                                                        }) => {
+export const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUserCallback,}) => {
     const [name, setName] = useState<string>('')
     const [error, setError] = useState<string>('')
 
