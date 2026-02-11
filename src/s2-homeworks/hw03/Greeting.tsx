@@ -1,12 +1,15 @@
 import React, {ChangeEvent, KeyboardEvent} from 'react'
 import s from './Greeting.module.css'
+// * 9 - в файле Greeting.tsx дописать типизацию пропсов
+// * 10 - в файле Greeting.tsx вычислить inputClass в зависимости от наличия ошибки
+
 
 type GreetingPropsType = {
     name: string
-    setNameCallback: (e: ChangeEvent<HTMLInputElement>) => void
+    setNameCallback: (e:ChangeEvent<HTMLInputElement>) => void
     addUser: () => void
     onBlur: () => void
-    onEnter: (e: KeyboardEvent<HTMLInputElement>) => void
+    onEnter: (e:KeyboardEvent<HTMLInputElement>) => void
     error: string
     totalUsers: number
     lastUserName?: string
@@ -25,7 +28,8 @@ const Greeting: React.FC<GreetingPropsType> = (
         lastUserName,
     } // деструктуризация пропсов
 ) => {
-    const inputClass =error ? s.errorInput : s.input// need to fix with (?:)
+
+    const inputClass = error ? s.errorInput : s.input // need to fix with (?:)
 
     return (
         <div id={'hw3-form'} className={s.greetingForm}>

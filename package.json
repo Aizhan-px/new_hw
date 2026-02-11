@@ -1,6 +1,6 @@
 {
-  "name": "hws2",
-  "homepage": "http://Aizhan-px.github.io/hws-2",
+  "name": "new_hw",
+  "homepage": "http://Aizhan-px.github.io/new_hw",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,7 +14,7 @@
     "@types/node": "16.11.56",
     "@types/uuid": "8.3.4",
     "axios": "0.27.2",
-    "gh-pages": "4.0.0",
+    "gh-pages": "^6.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-redux": "8.0.4",
@@ -52,6 +52,7 @@
     ]
   },
   "devDependencies": {
+    "@types/css-modules": "^1.0.5",
     "@types/react": "19.2.13",
     "@types/react-dom": "19.2.3"
   }

@@ -4,8 +4,8 @@
 // * 6 - в файле GreetingContainer.tsx дописать тип и логику функции setNameCallback
 // * 7 - в файле GreetingContainer.tsx дописать логику функций pureAddUser, pureOnBlur, pureOnEnter и проверить их тестами
 // * 8 - в файле GreetingContainer.tsx вычислить количество добавленных и имя последнего (totalUsers, lastUserName)
-// * 9 - в файле Greeting.tsx дописать типизацию пропсов
-// * 10 - в файле Greeting.tsx вычислить inputClass в зависимости от наличия ошибки
+
+
 
 import React, { ChangeEvent, KeyboardEvent, useState } from 'react'
 import Greeting from './Greeting'
@@ -16,40 +16,26 @@ type GreetingContainerPropsType = {
     addUserCallback: (name: string) => void
 }
 
-export const pureAddUser = (
-    name: string,
-    setError: (error: string) => void,
-    setName: (name: string) => void,
-    addUserCallback: (name: string) => void
-) => {
-    if (name.trim() === '') {
+export const pureAddUser = ( name: string, setError: (error: string) => void, setName: (name: string) => void, addUserCallback: (name: string) => void) =>
+{
+    if (!name.trim()){
         setError('Ошибка! Введите имя!')
+    }
+    else {
         setName('')
-        return false
-    } else {
+        setError('')
         addUserCallback(name)
-        setName('')
-        setError('')
-        return true
     }
 }
 
-export const pureOnBlur = (
-    name: string,
-    setError: (error: string) => void,
-) => {
-    if (name.trim() === '') {
+export const pureOnBlur = (name: string, setError: (error: string) => void,) => {
+    if (!name.trim()){
         setError('Ошибка! Введите имя!')
-    } else {
-        setError('')
     }
 }
 
-export const pureOnEnter = (
-    e: KeyboardEvent<HTMLInputElement>,
-    addUser: () => void
-) => {
-    if (e.key === 'Enter') {
+export const pureOnEnter = (e: KeyboardEvent<HTMLInputElement>, addUser: () => void) => {
+    if(e.key === 'Enter') {
         addUser()
     }
 }
@@ -58,13 +44,13 @@ export const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, 
     const [name, setName] = useState<string>('')
     const [error, setError] = useState<string>('')
 
-    const setNameCallback = (e: ChangeEvent<HTMLInputElement>) => {
-        setName(e.currentTarget.value)
-        if (error) setError('')
+
+    const setNameCallback = (e:ChangeEvent<HTMLInputElement>) => {
+        setName(e.target.value)
+       error && setError('')
     }
 
-    const addUser = () => {
-        pureAddUser(name, setError, setName, addUserCallback)
+    const addUser = () => { pureAddUser(name, setError, setName, addUserCallback)
     }
 
     const onBlur = () => {
@@ -76,7 +62,7 @@ export const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, 
     }
 
     const totalUsers = users.length
-    const lastUserName = users.length ? users[users.length - 1].name : ''
+    const lastUserName = users[users.length - 1]?.name
 
     return (
         <Greeting
