@@ -1,5 +1,6 @@
 import React, {ChangeEvent, KeyboardEvent} from 'react'
 import s from './Greeting.module.css'
+
 // * 9 - в файле Greeting.tsx дописать типизацию пропсов
 // * 10 - в файле Greeting.tsx вычислить inputClass в зависимости от наличия ошибки
 

@@ -3,6 +3,7 @@
 // * 5 - в файле GreetingContainer.tsx указать нужные типы в useState с name и error
 // * 6 - в файле GreetingContainer.tsx дописать тип и логику функции setNameCallback
 // * 7 - в файле GreetingContainer.tsx дописать логику функций pureAddUser, pureOnBlur, pureOnEnter и проверить их тестами
+
 // * 8 - в файле GreetingContainer.tsx вычислить количество добавленных и имя последнего (totalUsers, lastUserName)
 
 
@@ -63,6 +64,7 @@ export const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, 
 
     const totalUsers = users.length
     const lastUserName = users[users.length - 1]?.name
+    // * 8 - в файле GreetingContainer.tsx вычислить количество добавленных и имя последнего (totalUsers, lastUserName)
 
     return (
         <Greeting
