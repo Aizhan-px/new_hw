@@ -9,7 +9,7 @@ import Pages from './Pages'
 * 3 - застилизовать хэдэр и сайдбар в соответствии с дизайном
 * */
 
-function HW5() {
+export default  function HW5() {
     return (
         <HashRouter>
             {/*в gh-pages лучше работает HashRouter, с BrowserRouter скорее всего не пройдёт тест*/}
@@ -20,4 +20,4 @@ function HW5() {
     )
 }
 
-export default HW5
+
