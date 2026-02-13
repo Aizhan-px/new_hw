@@ -43,6 +43,7 @@
     color: #1a73e8;
     font-weight: 600;
     text-decoration: underline;
+    cursor: pointer;
 }
 .close {
     position: absolute;
