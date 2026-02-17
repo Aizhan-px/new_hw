@@ -1,11 +1,20 @@
 .spanBlock {
+    margin-top: 20px;
+
 }
 
 .span {
+    font-size: 16px;
+
 }
 
 .input {
+    font-size: 16px;
+    padding: 4px 8px;
 }
 
 .pen {
+    cursor: pointer;
+    gap: 5px;
 }
+
