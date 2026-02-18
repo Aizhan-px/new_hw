@@ -15,6 +15,8 @@ type SuperSelectPropsType = DefaultSelectPropsType & {
     onChangeOption?: (option: any) => void
 }
 
+// * 1 - в файле SuperSelect.tsx дописать логику функции onChangeCallback
+
 const SuperSelect: React.FC<SuperSelectPropsType> = ({
     options,
     className,
@@ -36,7 +38,11 @@ const SuperSelect: React.FC<SuperSelectPropsType> = ({
         : [] // map options with key
 
     const onChangeCallback = (e: ChangeEvent<HTMLSelectElement>) => {
-        // делают студенты
+        onChange && onChange(e)
+
+        const selectedValue = Number(e.currentTarget.value)
+
+        onChangeOption && onChangeOption(selectedValue)
     }
 
     const finalSelectClassName = s.select + (className ? ' ' + className : '')

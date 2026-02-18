@@ -4,7 +4,7 @@
 }
 
 .hw {
-
+    gap: 10px;
 }
 
 .hwTitle {
@@ -13,5 +13,7 @@
     font-style: normal;
     font-size: 22px;
     letter-spacing: normal;
-    color: black;
+    color: rgba(0, 0, 0, 0.82);
+    border-bottom: 1px solid #D9D9D9;
+    gap: 10px;
 }

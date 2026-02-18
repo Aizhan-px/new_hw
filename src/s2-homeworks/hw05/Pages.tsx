@@ -10,7 +10,6 @@ export const PATH = {
     PRE_JUNIOR: '/pre-junior',
     JUNIOR: '/junior',
     JUNIOR_PLUS: '/junior-plus',
-    BLA: '/bla',
 }
 
 export default function Pages() {
