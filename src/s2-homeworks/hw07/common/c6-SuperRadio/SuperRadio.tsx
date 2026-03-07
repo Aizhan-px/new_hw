@@ -56,9 +56,7 @@ export const SuperRadio: React.FC<SuperRadioPropsType> = ({
                       onChange={onChangeCallback}
                       {...restProps}
                   />
-                  <span
-                      id={id + '-span-' + o.id}
-                      {...spanProps}
+                  <span id={id + '-span-' + o.id} {...spanProps}
                       className={spanClassName}
                   >
                       {o.value}

@@ -1,6 +1,6 @@
 {
   "name": "new_hw",
-  "homepage": "http://Aizhan-px.github.io/new_hw",
+  "homepage": "//Aizhan-px.github.io/new_hw",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -31,7 +31,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "yarn run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "publish": "git add . && git commit -m \"update\" && git push && yarn deploy"
   },
   "eslintConfig": {
     "extends": [
