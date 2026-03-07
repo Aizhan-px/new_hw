@@ -1,3 +1,8 @@
+.container {
+    margin: 0 auto;
+
+}
+
 .item {
     border-bottom: 1px solid rgba(124, 120, 120, 0.5);
 }
@@ -7,9 +12,9 @@
 }
 
 .users {
-    width: 100%;
+    width: 80%;
     border-collapse: collapse;
-    background: white;
+    background: rgba(73, 183, 214, 0.37);
 }
 
 .buttonsContainer {
@@ -20,13 +25,13 @@
 }
 
 button {
-    padding: 8px 18px;
-    border: 2px solid #1976d2;
+    padding: 4px 18px;
+    border: 1px solid #0066CC;
     background: white;
-    color: #1976d2;
-    border-radius: 6px;
+    color: #0066CC;
+    border-radius: 2px;
     cursor: pointer;
-    font-size: medium;
+    font-size: 14px;
     transition: 0.2s;
 }
 
@@ -35,21 +40,19 @@ button:hover {
     color: white;
 }
 
-.container {
-    margin: 0 auto;
-}
+
 
 .thead {
     background: #e5e5e5;
-    font-weight: 600;
+    /*font-weight: 600;*/
 }
 
 .nameCol {
-    text-align: left;
+    /*text-align: left;*/
     padding: 12px 16px;
 }
 
 .ageCol {
-    text-align: left;
+    /*text-align: left;*/
     padding: 12px 16px;
 }
