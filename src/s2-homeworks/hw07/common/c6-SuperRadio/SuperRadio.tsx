@@ -34,9 +34,7 @@ export const SuperRadio: React.FC<SuperRadioPropsType> = ({
 }) => {
     const onChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
         onChange && onChange(e)
-
         const selectedId = Number(e.currentTarget.value)
-
         onChangeOption && onChangeOption(selectedId)
     }
 
