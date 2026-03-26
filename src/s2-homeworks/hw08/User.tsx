@@ -20,19 +20,8 @@ const User: React.FC<UserPropsType> = ({ u }) => {
         </tr>
     )
 }
-//id={'hw8-user-' + u._id + '-' + u.age}
+
 
 export default User
 
 
-
-//return (
-//         <tr id={'hw8-user-'+ u._id} >
-//             <td id={'hw8-user-name-'+ u._id}>
-//             {u.name}
-//             </td>
-//             <td id={'hw8-user-age-'+ u._id}>
-//             {u.age}
-//             </td>
-//         </tr>
-//     )

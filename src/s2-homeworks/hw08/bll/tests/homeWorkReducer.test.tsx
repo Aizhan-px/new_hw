@@ -36,6 +36,5 @@ test('check age 18', () => {
         type: 'check',
         payload: 18,
     })
-
     expect(newState.length).toBe(4)
 })

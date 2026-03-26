@@ -13,6 +13,11 @@ import User from './User'
 * 3 - сделать стили в соответствии с дизайном
 * */
 
+
+//Состояние сайта при обратной сортировке по имени:
+//Состояние сайта при сортировке по имени по алфавиту:
+//Состояние сайта при фильтрации по совершеннолетию:
+
 export type UserType = {
     _id: number
     name: string
@@ -22,11 +27,11 @@ export type UserType = {
 const initialPeople: UserType[] = [
     // студенты могут поменять имя/возраст/количество объектов, _id должны быть целочисленные
     {_id: 0, name: 'Кот', age: 3},
-    {_id: 1, name: 'Александр', age: 66},
-    {_id: 2, name: 'Коля', age: 16},
+    {_id: 1, name: 'Александр', age: 16},
+    {_id: 2, name: 'Коля', age: 40},
     {_id: 3, name: 'Виктор', age: 44},
-    {_id: 4, name: 'Дмитрий', age: 40},
-    {_id: 5, name: 'Ирина', age: 55},
+    {_id: 4, name: 'Дмитрий', age: 55},
+    {_id: 5, name: 'Ирина', age: 66},
 ]
 
 const HW8 = () => {
@@ -37,20 +42,20 @@ const HW8 = () => {
 
     const sortUp = () => {
         setPeople(
-            homeWorkReducer(initialPeople, {type: 'sort', payload: 'up'})
+            homeWorkReducer(people, {type: 'sort', payload: 'up'})
         ) // в алфавитном порядке a.name > b.name
         setCurrentSort('up')
     }
 
     const sortDown = () => {
         setPeople(
-            homeWorkReducer(initialPeople, {type: 'sort', payload: 'down'})
+            homeWorkReducer(people, {type: 'sort', payload: 'down'})
         ) // в обратном порядке a.name < b.name}
         setCurrentSort('down')
     }
     const check18 = () => {
         setPeople(
-            homeWorkReducer(initialPeople, {type: 'check', payload: 18})
+            homeWorkReducer(people, {type: 'check', payload: 18})
         ) // совершеннолетние
         setCurrentSort('18')
     }
