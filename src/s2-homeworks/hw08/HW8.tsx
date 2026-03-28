@@ -38,25 +38,20 @@ const HW8 = () => {
     const [people, setPeople] = useState<UserType[]>(initialPeople)
     const [currentSort, setCurrentSort] = useState('')
 
-    const finalPeople = people.map((u: UserType) => <User key={u._id} u={u}/>)
+    const finalPeople = people.map((u: UserType) => (
+        <User key={u._id} u={u}/>))
 
     const sortUp = () => {
-        setPeople(
-            homeWorkReducer(people, {type: 'sort', payload: 'up'})
-        ) // в алфавитном порядке a.name > b.name
+        setPeople(homeWorkReducer(initialPeople, {type: 'sort', payload: 'up'})) // в алфавитном порядке a.name > b.name
         setCurrentSort('up')
     }
 
     const sortDown = () => {
-        setPeople(
-            homeWorkReducer(people, {type: 'sort', payload: 'down'})
-        ) // в обратном порядке a.name < b.name}
+        setPeople(homeWorkReducer(initialPeople, {type: 'sort', payload: 'down'})) // в обратном порядке a.name < b.name}
         setCurrentSort('down')
     }
     const check18 = () => {
-        setPeople(
-            homeWorkReducer(people, {type: 'check', payload: 18})
-        ) // совершеннолетние
+        setPeople(homeWorkReducer(initialPeople, {type: 'check', payload: 18})) // совершеннолетние
         setCurrentSort('18')
     }
 
@@ -66,25 +61,13 @@ const HW8 = () => {
             <div className={s2.hw}>
                 <div className={s.container}>
                     <div className={s.buttonsContainer}>
-                        <SuperButton
-                            id={'hw8-button-up'}
-                            onClick={sortUp}
-                            xType={currentSort === 'up' ? '' : 'secondary'}
-                        >
+                        <SuperButton id={'hw8-button-up'} onClick={sortUp} xType={currentSort === 'up' ? '' : 'secondary'}>
                             Sort up
                         </SuperButton>
-                        <SuperButton
-                            id={'hw8-button-down'}
-                            onClick={sortDown}
-                            xType={currentSort === 'down' ? '' : 'secondary'}
-                        >
+                        <SuperButton id={'hw8-button-down'} onClick={sortDown} xType={currentSort === 'down' ? '' : 'secondary'}>
                             Sort down
                         </SuperButton>
-                        <SuperButton
-                            id={'hw8-button-18'}
-                            onClick={check18}
-                            xType={currentSort === '18' ? '' : 'secondary'}
-                        >
+                        <SuperButton id={'hw8-button-18'} onClick={check18} xType={currentSort === '18' ? '' : 'secondary'}>
                             Check 18+
                         </SuperButton>
                     </div>
