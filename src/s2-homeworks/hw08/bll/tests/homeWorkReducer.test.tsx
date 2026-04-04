@@ -20,7 +20,6 @@ test('sort name up', () => {
         type: 'sort',
         payload: 'up',
     })
-
     expect(newState[0]._id).toBe(1)
 })
 test('sort name down', () => {
@@ -28,7 +27,6 @@ test('sort name down', () => {
         type: 'sort',
         payload: 'down',
     })
-
     expect(newState[0]._id).toBe(0)
 })
 test('check age 18', () => {
