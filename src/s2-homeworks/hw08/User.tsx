@@ -1,17 +1,17 @@
-import React from 'react'
 import { UserType } from './HW8'
-import s from "./HW8.module.css"
+import s from './HW8.module.css'
+import React from "react";
 
-
+// types
 type UserPropsType = {
     u: UserType
 }
 
-const User: React.FC<UserPropsType> = ({ u }) => {
+const User: React.FC<UserPropsType>  = ({ u }) => {
     return (
-        <tr  className={s.item}>
+        <tr id={'hw8-user-' + u._id + '-' + u.age} className={s.item}>
             <td id={'hw8-user-name-' + u._id} className={s.nameCol}>
-               {u.name}
+                {u.name}
 
             </td>
             <td id={'hw8-user-age-' + u._id}>
@@ -20,8 +20,5 @@ const User: React.FC<UserPropsType> = ({ u }) => {
         </tr>
     )
 }
-
-
 export default User
-
 

@@ -1,55 +1,23 @@
-// import {UserType} from '../HW8'
-//
-// type ActionType =
-//     | { type: 'sort'; payload: 'up' | 'down' }
-//
-//     | { type: 'check'; payload: number }
-//
-// export const homeWorkReducer = (
-//     state: UserType[],
-//     action: ActionType
-// ): UserType[] => { // need to fix any
-//     switch (action.type) {
-//         case 'sort':
-//             return [...state].sort((a, b) =>
-//                 action.payload === 'up'
-//                     ? a.name.localeCompare(b.name)
-//                     : b.name.localeCompare(a.name)
-//             )
-//
-//         case 'sort-age':
-//             return [...state].sort((a, b) =>
-//                 action.payload === 'up'
-//                     ? a.age - b.age
-//                     : b.age - a.age
-//             )
-//
-//         case 'check':
-//             return state.filter(user => user.age >= action.payload)
-//         default:
-//             return state
-//     }
-//     }
-
 import { UserType } from '../HW8'
 
-type ActionType = { type: 'sort'; payload: 'up' | 'down' } | { type: 'check'; payload: number }
+export type ActionType =
+    | { type: 'sort'; payload: 'up' | 'down' }
+    | { type: 'check'; payload: number }
 
 export const homeWorkReducer = (state: UserType[], action: ActionType): UserType[] => {
     switch (action.type) {
         case 'sort': {
-            const newState = [...state].sort((a, b) => {
-                if (a.name > b.name) return 1
-                else if (a.name < b.name) return -1
-                else return 0
-            })
-            return action.payload === 'up' ? newState : newState.reverse()
-    }
-    case 'check': {
-            return state.filter(a => a.age >= action.payload)
+            // Создаём копию, чтобы не мутировать оригинальный массив
+            const sorted = [...state].sort((a, b) => a.name.localeCompare(b.name))
+            // Если payload 'up' — возвращаем как есть, иначе переворачиваем для 'down'
+            return action.payload === 'up' ? sorted : sorted.reverse()
         }
-        default: return state
+        case 'check': {
+            // Фильтруем массив по возрасту >= payload (совершеннолетние)
+            return state.filter(u => u.age >= action.payload)
+        }
+        default:
+            return state
     }
 }
-
 
