@@ -5,19 +5,22 @@ export type ActionType =
     | { type: 'check'; payload: number }
 
 export const homeWorkReducer = (state: UserType[], action: ActionType): UserType[] => {
-    switch (action.type) {
-        case 'sort': {
-            // Создаём копию, чтобы не мутировать оригинальный массив
-            const sorted = [...state].sort((a, b) => a.name.localeCompare(b.name))
-            // Если payload 'up' — возвращаем как есть, иначе переворачиваем для 'down'
-            return action.payload === 'up' ? sorted : sorted.reverse()
-        }
-        case 'check': {
-            // Фильтруем массив по возрасту >= payload (совершеннолетние)
-            return state.filter(u => u.age >= action.payload)
-        }
-        default:
-            return state
-    }
-}
+     switch (action.type) {
+            case 'sort': {
+                // создаём копию массива, чтобы не мутировать оригинал
+                const sorted = [...state].sort((a, b) => a.name.localeCompare(b.name))
 
+                // payload 'up' — по алфавиту, 'down' — обратный алфавит
+                return action.payload === 'up' ? sorted : [...sorted].reverse()
+            }
+
+            case 'check': {
+                // фильтруем людей по возрасту >= payload
+                return state.filter(u => u.age >= action.payload)
+            }
+
+            default:
+                // если тип действия неизвестен, возвращаем исходный массив
+                return state
+        }
+    }

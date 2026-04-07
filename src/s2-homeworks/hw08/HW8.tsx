@@ -42,12 +42,7 @@ const HW8 = () => {
 
 
     const finalPeople = people.map((u: UserType) => <User key={u._id} u={u}/>)
-
-
-
-
     // Что происходит в целом  // Когда ты нажимаешь кнопку:  // Вызывается sortUp  // Reducer сортирует initialPeopl // setPeople обновляет state // React перерисовывает список//  Пользователи отображаются в алфавитном порядке
-
     const sortUp = () => {
         setPeople(
             // ты всегда берёшь initialPeople, а не people // Это значит: каждый раз начинаешь с нуля предыдущие изменения не учитываются
@@ -55,8 +50,6 @@ const HW8 = () => {
         ) // в алфавитном порядке a.name > b.name
         setCurrentSort('up') // Обновляется второе состояние currentSort записываем 'up', чтобы: знать текущую сортировку менять стиль кнопки (например, активная/неактивная)
     }
-
-
 
     const sortDown = () => {
         setPeople(
