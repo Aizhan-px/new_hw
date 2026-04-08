@@ -56,10 +56,17 @@ const HW8 = () => {
 
     const check18 = () => {
         setPeople(
-            homeWorkReducer(people, { type: 'check', payload: 18 })
+            homeWorkReducer(initialPeople, { type: 'check', payload: 18 })
         )
         setCurrentSort('18')
     }
+
+    // const check18 = () => {
+    //     setPeople(
+    //         homeWorkReducer(people, { type: 'check', payload: 18 })
+    //     )
+    //     setCurrentSort('18')
+    // }
 
 
 
