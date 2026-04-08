@@ -10,9 +10,7 @@ import User from './User'
 * логику (сортировка по имени, фильтрация по совершеннолетию)
 *  homeWorkReducer, проверить тестом
 * 2 - дописать компоненту User
-*
-*
-* 3 - сделать стили в соответствии с дизайном
+
 * */
 
 //Состояние сайта при обратной сортировке по имени:
@@ -42,28 +40,51 @@ const HW8 = () => {
 
 
     const finalPeople = people.map((u: UserType) => <User key={u._id} u={u}/>)
-    // Что происходит в целом  // Когда ты нажимаешь кнопку:  // Вызывается sortUp  // Reducer сортирует initialPeopl // setPeople обновляет state // React перерисовывает список//  Пользователи отображаются в алфавитном порядке
     const sortUp = () => {
         setPeople(
-            // ты всегда берёшь initialPeople, а не people // Это значит: каждый раз начинаешь с нуля предыдущие изменения не учитываются
-            homeWorkReducer(initialPeople, {type: 'sort', payload: 'up'}) // {} это action (действие)<-
-        ) // в алфавитном порядке a.name > b.name
-        setCurrentSort('up') // Обновляется второе состояние currentSort записываем 'up', чтобы: знать текущую сортировку менять стиль кнопки (например, активная/неактивная)
+            homeWorkReducer(people, { type: 'sort', payload: 'up' })
+        )
+        setCurrentSort('up')
     }
 
     const sortDown = () => {
         setPeople(
-            homeWorkReducer(initialPeople, {type: 'sort', payload: 'down'})
-        ) // в обратном порядке a.name < b.name}
-        setCurrentSort('down') //setPeople(новый_отсортированный_массив)
+            homeWorkReducer(people, { type: 'sort', payload: 'down' })
+        )
+        setCurrentSort('down')
     }
 
     const check18 = () => {
         setPeople(
-            homeWorkReducer(initialPeople, {type: 'check', payload: 18})
-        ) // совершеннолетние
+            homeWorkReducer(people, { type: 'check', payload: 18 })
+        )
         setCurrentSort('18')
     }
+
+
+
+    // Что происходит в целом  // Когда ты нажимаешь кнопку:  // Вызывается sortUp  // Reducer сортирует initialPeopl // setPeople обновляет state // React перерисовывает список//  Пользователи отображаются в алфавитном порядке
+    // const sortUp = () => {
+    //     setPeople(
+    //         // ты всегда берёшь initialPeople, а не people // Это значит: каждый раз начинаешь с нуля предыдущие изменения не учитываются
+    //         homeWorkReducer(initialPeople, {type: 'sort', payload: 'up'}) // {} это action (действие)<-
+    //     ) // в алфавитном порядке a.name > b.name
+    //     setCurrentSort('up') // Обновляется второе состояние currentSort записываем 'up', чтобы: знать текущую сортировку менять стиль кнопки (например, активная/неактивная)
+    // }
+    //
+    // const sortDown = () => {
+    //     setPeople(
+    //         homeWorkReducer(initialPeople, {type: 'sort', payload: 'down'})
+    //     ) // в обратном порядке a.name < b.name}
+    //     setCurrentSort('down') //setPeople(новый_отсортированный_массив)
+    // }
+    //
+    // const check18 = () => {
+    //     setPeople(
+    //         homeWorkReducer(initialPeople, {type: 'check', payload: 18})
+    //     ) // совершеннолетние
+    //     setCurrentSort('18')
+    //}
 
     return (
         <div id={'hw3'}>
