@@ -9,10 +9,14 @@ export const homeWorkReducer = (state: UserType[], action: ActionType): UserType
             case 'sort': {
                 // создаём копию массива, чтобы не мутировать оригинал
                 const sorted = [...state].sort((a, b) => a.name.localeCompare(b.name))
-
                 // payload 'up' — по алфавиту, 'down' — обратный алфавит
                 return action.payload === 'up' ? sorted : [...sorted].reverse()
             }
+           // case 'sort': {
+           //   // возвращаем новый массив, сортируем по имени
+           //   return[...state].sort(action.payload === "up" ? (a,b) =>
+           //       a.name.localeCompare(b.name) : (a, b) => b.name.localeCompare(a.name) )
+           //  }
 
             case 'check': {
                 // фильтруем людей по возрасту >= payload
@@ -24,3 +28,11 @@ export const homeWorkReducer = (state: UserType[], action: ActionType): UserType
                 return state
         }
     }
+
+    //case 'sort': {
+//                 // создаём копию массива, чтобы не мутировать оригинал
+//                 const sorted = [...state].sort((a, b) => a.name.localeCompare(b.name))
+//
+//                 // payload 'up' — по алфавиту, 'down' — обратный алфавит
+//                 return action.payload === 'up' ? sorted : [...sorted].reverse()
+//             }
