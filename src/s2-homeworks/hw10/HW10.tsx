@@ -1,5 +1,5 @@
 import React from 'react'
-import {useDispatch, useSelector} from 'react-redux'
+import {useDispatch, useSelector } from 'react-redux'
 import {AppStoreType} from './bll/store'
 import {loadingAC} from './bll/loadingReducer'
 import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
@@ -13,15 +13,24 @@ import {Loader} from './Loader'
 * 4 - сделать стили в соответствии с дизайном
 * */
 
+//Я использую useSelector, чтобы получить состояние isLoading из Redux store,
+// и useDispatch для отправки action.
+// При клике вызывается функция, которая включает loading,
+// а затем через setTimeout выключает его через 1.5 секунды.
+
 const HW10 = () => {
-    // useSelector, useDispatch // пишет студент
-    const isLoading = false
+    const dispatch = useDispatch() // пишет студент
+    //const isLoading = false
 
-    const setLoading = () => { // пишет студент // показать крутилку на 1,5 секунд
-        // dispatch
+    const isLoading = useSelector((state: AppStoreType) => state.loading.isLoading)   // пишет студент // показать крутилку на 1,5 секунд
 
-        // setTimeout
-    }
+    const setLoading=() => {
+        dispatch(loadingAC(true)) // включили loader
+
+    setTimeout(() => {dispatch(loadingAC(false)) // выключили через 1.5 сек
+         }, 1500)
+ }
+
 
     return (
         <div id={'hw10'}>
@@ -32,11 +41,7 @@ const HW10 = () => {
                     <div id={'hw10-loading'}>
                         <Loader/>
                     </div>
-                ) : (
-                    <SuperButton
-                        id={'hw10-button-start-loading'}
-                        onClick={setLoading}
-                    >
+                ) : (<SuperButton id={'hw10-button-start-loading'} onClick={setLoading}>
                         Set loading...
                     </SuperButton>
                 )}
