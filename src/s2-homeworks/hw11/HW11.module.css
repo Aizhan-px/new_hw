@@ -1,8 +1,27 @@
 .container {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    align-items: flex-start;
+    padding: 40px 0;
 }
 
 .wrapper {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 360px;
+    transition: box-shadow 0.2s ease;
 }
 
+
+
 .number {
+    min-width: 45px;
+    text-align: center;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    color: rgb(4, 78, 101);
 }
