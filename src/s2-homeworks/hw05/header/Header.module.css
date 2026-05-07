@@ -1,18 +1,40 @@
-.burgerMenuIcon {
-    cursor: pointer;
-}
-
 .header {
     height: 80px;
-    background: rgba(73, 183, 214, 0.84);
+    background: rgb(12, 182, 103);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 30px;
+
+    padding: 0 32px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .header h1 {
-    font-family: sans-serif,Montserrat;
-    font-size: 24px;
-    width: 124px;
+    font-family: Montserrat, sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 0;
+    color: rgba(26, 26, 26, 0.84);
+}
+
+.burgerMenuIcon {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+    transition: background 0.2s ease;
+}
+
+.burgerMenuIcon:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
