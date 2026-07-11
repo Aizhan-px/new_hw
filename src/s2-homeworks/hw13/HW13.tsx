@@ -37,30 +37,29 @@ const HW13 = () => {
         axios.post(url, {success: x})
             .then((res) => {
                 setCode(String(res.status))
-                setInfo(res.statusText)
-                setText(res.data.error)
+                setInfo(res.data.info)
+                setText(res.data.errorText)
                 setImage(success200)
             })
             .catch((e) => {
                 if (!e.response) {
+                    console.log("NETWORK ERROR")
                     setCode("Network Error")
-                    setInfo("Не удалось подключиться к серверу")
-                    setText("Проверь интернет или адрес сервера")
+                    setInfo(e.response.data.info)
+                    setText(e.response.data.errorText)
                     setImage(errorUnknown)
                     return
                 }
                 if (e.response.status === 400) {
                     setCode('Код 400!')
-                    setInfo('Ошибка 400 Bad Request !')
+                    setInfo(e.response.data.info)
+                    setText(e.response.data.errorText)
                     setImage(error400)
-                    setText('Ты не отправил success в body вообще! ошибка 400 - обычно означает что скорее всего фронт отправил что-то не то на бэк!')
-                }
-                if (e.response.status === 500) {
+                } else if (e.response.status === 500) {
                     setCode('Код 500!')
                     setImage(error500)
-                    setInfo("500 Internal Server Error ! ")
-                    setText('"имитация ошибки на сервере \n' +
-                        'ошибка 500 - обычно означает что что-то сломалось на сервере, например база данных)')
+                    setInfo(e.response.data.info)
+                    setText(e.response.data.errorText)
                 }
             })
             .finally(() => {
