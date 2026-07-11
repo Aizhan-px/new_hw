@@ -44,9 +44,9 @@ const HW13 = () => {
             .catch((e) => {
                 if (!e.response) {
                     console.log("NETWORK ERROR")
-                    setCode("Network Error")
-                    setInfo(e.response.data.info)
-                    setText(e.response.data.errorText)
+                    setCode("NETWORK ERROR")
+                    setInfo("Error")
+                    setText("Не удалось подключиться к серверу")
                     setImage(errorUnknown)
                     return
                 }
