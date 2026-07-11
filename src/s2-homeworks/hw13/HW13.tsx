@@ -19,6 +19,8 @@ const HW13 = () => {
     const [text, setText] = useState('')
     const [info, setInfo] = useState('')
     const [image, setImage] = useState('')
+    const [loading, setLoading] = useState(false)
+
 
     const send = (x?: boolean | null) => () => {
         const url =
@@ -30,18 +32,39 @@ const HW13 = () => {
         setImage('')
         setText('')
         setInfo('...loading')
+        setLoading(true)
 
-        axios
-            .post(url, {success: x})
+        axios.post(url, {success: x})
             .then((res) => {
-                setCode('Код 200!')
+                setCode(String(res.status))
+                setInfo(res.statusText)
+                setText(res.data.error)
                 setImage(success200)
-                // дописать
-
             })
             .catch((e) => {
-                // дописать
-
+                if (!e.response) {
+                    setCode("Network Error")
+                    setInfo("Не удалось подключиться к серверу")
+                    setText("Проверь интернет или адрес сервера")
+                    setImage(errorUnknown)
+                    return
+                }
+                if (e.response.status === 400) {
+                    setCode('Код 400!')
+                    setInfo('Ошибка 400 Bad Request !')
+                    setImage(error400)
+                    setText('Ты не отправил success в body вообще! ошибка 400 - обычно означает что скорее всего фронт отправил что-то не то на бэк!')
+                }
+                if (e.response.status === 500) {
+                    setCode('Код 500!')
+                    setImage(error500)
+                    setInfo("500 Internal Server Error ! ")
+                    setText('"имитация ошибки на сервере \n' +
+                        'ошибка 500 - обычно означает что что-то сломалось на сервере, например база данных)')
+                }
+            })
+            .finally(() => {
+                setLoading(false)
             })
     }
 
@@ -51,42 +74,11 @@ const HW13 = () => {
 
             <div className={s2.hw}>
                 <div className={s.buttonsContainer}>
-                    <SuperButton
-                        id={'hw13-send-true'}
-                        onClick={send(true)}
-                        xType={'secondary'}
-                        // дописать
-
-                    >
-                        Send true
-                    </SuperButton>
-                    <SuperButton
-                        id={'hw13-send-false'}
-                        onClick={send(false)}
-                        xType={'secondary'}
-                        // дописать
-
-                    >
-                        Send false
-                    </SuperButton>
-                    <SuperButton
-                        id={'hw13-send-undefined'}
-                        onClick={send(undefined)}
-                        xType={'secondary'}
-                        // дописать
-
-                    >
-                        Send undefined
-                    </SuperButton>
-                    <SuperButton
-                        id={'hw13-send-null'}
-                        onClick={send(null)} // имитация запроса на не корректный адрес
-                        xType={'secondary'}
-                        // дописать
-
-                    >
-                        Send null
-                    </SuperButton>
+                    <SuperButton id={'hw13-send-true'} onClick={send(true)} xType={'secondary'} disabled={loading}>Send true</SuperButton>
+                    <SuperButton id={'hw13-send-false'} onClick={send(false)} xType={'secondary'} disabled={loading}> Send false </SuperButton>
+                    <SuperButton id={'hw13-send-undefined'} onClick={send(undefined)} xType={'secondary'} disabled={loading}> Send undefined</SuperButton>
+                    <SuperButton id={'hw13-send-null'} onClick={send(null)}  xType={'secondary'} disabled={loading}>Send null</SuperButton>
+                    {/*// имитация запроса на не корректный адрес*/}
                 </div>
 
                 <div className={s.responseContainer}>
@@ -95,15 +87,9 @@ const HW13 = () => {
                     </div>
 
                     <div className={s.textContainer}>
-                        <div id={'hw13-code'} className={s.code}>
-                            {code}
-                        </div>
-                        <div id={'hw13-text'} className={s.text}>
-                            {text}
-                        </div>
-                        <div id={'hw13-info'} className={s.info}>
-                            {info}
-                        </div>
+                        <div id={'hw13-code'} className={s.code}>{code} </div>
+                        <div id={'hw13-text'} className={s.text}>{text}</div>
+                        <div id={'hw13-info'} className={s.info}>{info}</div>
                     </div>
                 </div>
             </div>
