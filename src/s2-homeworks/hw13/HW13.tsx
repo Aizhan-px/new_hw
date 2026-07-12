@@ -31,7 +31,7 @@ const HW13 = () => {
         setCode('')
         setImage('')
         setText('')
-        setInfo('Error')
+        setInfo('...loading')
         setLoading(true)
 
         axios.post(url, {success: x})
@@ -42,8 +42,13 @@ const HW13 = () => {
                 setImage(success200)
             })
             .catch((e) => {
-                if (!e.response) {
-                    console.log("NETWORK ERROR")
+                console.log("SET INFO");
+                console.log(e.response)
+                console.log(e.request)
+                console.log(e.message)
+
+                if (e.message === "Network Error")  {
+                   // setCode("Network Error")
                     setCode("NETWORK ERROR")
                     setInfo("Error")
                     setText("Не удалось подключиться к серверу")
