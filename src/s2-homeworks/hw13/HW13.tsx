@@ -31,7 +31,7 @@ const HW13 = () => {
         setCode('')
         setImage('')
         setText('')
-        setInfo('...loading')
+        setInfo('Error')
         setLoading(true)
 
         axios.post(url, {success: x})
