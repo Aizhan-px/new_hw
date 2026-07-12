@@ -42,11 +42,6 @@ const HW13 = () => {
                 setImage(success200)
             })
             .catch((e) => {
-                console.log("SET INFO");
-                console.log(e.response)
-                console.log(e.request)
-                console.log(e.message)
-
                 if (e.message === "Network Error")  {
                    // setCode("Network Error")
                     setCode("NETWORK ERROR")
