@@ -7,6 +7,7 @@ import success200 from './images/200.svg'
 import error400 from './images/400.svg'
 import error500 from './images/500.svg'
 import errorUnknown from './images/error.svg'
+import {Loader} from "../hw10/Loader";
 
 /*
 * 1 - дописать функцию send
@@ -88,7 +89,7 @@ const HW13 = () => {
                     <div className={s.textContainer}>
                         <div id={'hw13-code'} className={s.code}>{code} </div>
                         <div id={'hw13-text'} className={s.text}>{text}</div>
-                        <div id={'hw13-info'} className={s.info}>{info}</div>
+                        <div id={'hw13-info'} className={s.info}>{info} {loading ? <Loader /> : info} </div>
                     </div>
                 </div>
             </div>
