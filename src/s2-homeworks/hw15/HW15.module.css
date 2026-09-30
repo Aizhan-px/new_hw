@@ -1,27 +1,41 @@
 .tech {
-    width: 50vw;
+    width: 50%;
 }
 
 .developer {
-
+    width: 50%;
 }
 
 .techHeader {
-    width: 50vw;
+    width: 50%;
+    display: flex;
+    align-items: center;
 }
 
 .developerHeader {
-
+    width: 50%;
+    display: flex;
+    align-items: center;
 }
 
 .row {
     display: flex;
+    width: 100%;
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
 }
 
 .rowHeader {
     display: flex;
+    width: 100%;
+    font-weight: 600;
+    padding: 10px ;
+    background-color: #e1e1e1;
 }
 
 .loading {
-
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(20%);
 }
